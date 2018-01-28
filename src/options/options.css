@@ -1,0 +1,44 @@
+label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#saveButton {
+    float: right;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#statusText {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+#url {
+    display: block;
+    width: 100%;
+}
+
+.header {
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.extension {
+    margin-bottom: 18px;
+    font-size: 13px;
+}
+
+.extension .name {
+    margin-bottom: 6px;
+}
+
+.extension .details {
+    padding: 6px;
+    background: #ccc;
+    font-size: 12px;
+}

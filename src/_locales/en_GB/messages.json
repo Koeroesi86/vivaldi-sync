@@ -1,0 +1,27 @@
+{
+  "extensionName": {
+    "message": "Vivaldi sync"
+  },
+  "extensionListHeader": {
+    "message": "Extensions installed:"
+  },
+  "extensionListDescription": {
+    "message": "Description:"
+  },
+  "extensionListEnabled": {
+    "message": "Enabled:"
+  },
+  "extensionListId": {
+    "message": "Id:"
+  },
+  "statusText": {
+    "message": "Start Page saved: $url$",
+    "description": "Status text when options updated",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "about:newtab"
+      }
+    }
+  }
+}
