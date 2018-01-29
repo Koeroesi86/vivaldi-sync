@@ -1,21 +1,19 @@
-function initialize() {
-    const options = {
-        extensions: []
-    };
+const options = {
+    extensions: []
+};
 
-    chrome.management.getAll(function (result) {
-        console.log("result", result);
-        const extensionList = document.getElementById("extensionList");
+function renderExtensions(extensions) {
+    const extensionList = document.getElementById("extensionList");
 
-        let htmlStr = "";
+    let htmlStr = "";
 
-        htmlStr += `<div class="header">${chrome.i18n.getMessage("extensionListHeader")}</div>`;
+    htmlStr += `<div class="header">${chrome.i18n.getMessage("extensionListHeader")}</div>`;
 
-        for (let i in result) {
-            /** @const extension ExtensionInfo https://developer.chrome.com/extensions/management#type-ExtensionInfo */
-            const extension = result[i];
-            if (extension.id) {
-                htmlStr += `
+    for (let i in extensions) {
+        /** @const extension ExtensionInfo https://developer.chrome.com/extensions/management#type-ExtensionInfo */
+        const extension = extensions[i];
+        if (extension.id) {
+            htmlStr += `
                     <div class="extension">
                         <div class="name">${extension.name}</div>
                         <div class="details">
@@ -25,15 +23,36 @@ function initialize() {
                         </div>
                     </div>
                  `;
-                options.extensions.push(extension.id);
-            }
+            options.extensions.push(extension.id);
         }
+    }
 
-        //TODO: do something with options
-        //TODO: other settings to be continued (note: API???)
+    //TODO: do something with options
+    //TODO: other settings to be continued (note: API???)
 
-        extensionList.innerHTML = htmlStr;
-    })
+    extensionList.innerHTML = htmlStr;
+}
+
+function initialize() {
+    chrome.management.getAll(function (result) {
+        console.log("result", result);
+
+        result.sort((a, b) => {
+            if (a.name < b.name)
+                return -1;
+            if (a.name > b.name)
+                return 1;
+            return 0;
+        });
+
+        renderExtensions(result);
+
+        for (let i in extensions) {
+            /** @const extension ExtensionInfo https://developer.chrome.com/extensions/management#type-ExtensionInfo */
+            const extension = result[i];
+            options.extensions.push(extension.id);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', initialize);

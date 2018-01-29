@@ -12,7 +12,7 @@
     "message": "Enabled:"
   },
   "extensionListId": {
-    "message": "Id:"
+    "message": "More info:"
   },
   "statusText": {
     "message": "Start Page saved: $url$",
