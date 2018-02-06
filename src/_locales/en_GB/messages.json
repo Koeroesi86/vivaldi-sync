@@ -14,6 +14,9 @@
   "extensionListId": {
     "message": "More info:"
   },
+  "extensionListType": {
+    "message": "Type:"
+  },
   "statusText": {
     "message": "Start Page saved: $url$",
     "description": "Status text when options updated",
